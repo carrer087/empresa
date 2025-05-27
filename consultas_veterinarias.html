@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria Salud Animal - Consultas y Servicios</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8fcf8; /* Fondo muy claro verdoso */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        header {
+            background-color: #28a745; /* Verde vibrante */
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 35px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+        h2 {
+            color: #28a745; /* Verde vibrante */
+            border-bottom: 2px solid #e0ffe0; /* Línea suave verde */
+            padding-bottom: 12px;
+            margin-top: 40px;
+            font-size: 2em;
+        }
+        h3 {
+            color: #508050; /* Verde más oscuro */
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+
+        /* Estilos de Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden; /* Para que los bordes redondeados se apliquen al contenido */
+        }
+        th, td {
+            border: 1px solid #e0ffe0; /* Bordes de tabla sutiles */
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #eafbea; /* Fondo ligeramente verde para encabezados */
+            color: #28a745; /* Texto verde vibrante */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfdfe; /* Fila par muy sutil */
+        }
+        tr:hover {
+            background-color: #e0ffe0; /* Resaltar fila al pasar el mouse */
+        }
+
+        /* Estilos de Formulario */
+        form {
+            background-color: #fcfdfe; /* Fondo claro para el formulario */
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #e0ffe0; /* Borde suave */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="url"],
+        input[type="password"],
+        select,
+        textarea {
+            width: calc(100% - 24px); /* Ajuste para padding y borde */
+            padding: 12px;
+            border: 1px solid #ccebcc; /* Borde suave */
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="url"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #28a745; /* Borde verde al enfocar */
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+            outline: none;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.1); /* Ligeramente más grande */
+        }
+        fieldset {
+            border: 1px solid #e0ffe0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            background-color: #fefefe;
+        }
+        legend {
+            font-weight: bold;
+            color: #28a745;
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block; /* Para que ocupe su propia línea */
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: #218838; /* Verde más oscuro al pasar el mouse */
+            transform: translateY(-2px); /* Efecto ligero de elevación */
+        }
+        .checkbox-group label, .radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        .range-output {
+            font-weight: bold;
+            color: #28a745;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Clínica Veterinaria Salud Animal</h1>
+      <p>Cuidando la salud y el bienestar de tus seres queridos</p>
+        <h1><a href="INDEX_OFICIAL_VETERINARIA.html">volver&nbsp;</a></h1>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Nuestros Servicios Veterinarios</h2>
+            <p>En Clínica Veterinaria Salud Animal, nos dedicamos a ofrecer una atención integral y compasiva para sus mascotas. Nuestro equipo de veterinarios experimentados está comprometido con la salud y el bienestar de cada paciente.</p>
+
+            <h3>Tabla 1: Horarios de Consulta y Especialidades</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Horario</th>
+                        <th>Veterinario Principal</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consulta General</td>
+                        <td>Lunes - Sábado: 9:00 - 18:00</td>
+                        <td>Dra. Ana López</td>
+                        <td>Diaria</td>
+                    </tr>
+                    <tr>
+                        <td>Vacunación y Desparasitación</td>
+                        <td>Lunes - Viernes: 10:00 - 17:00</td>
+                        <td>Dr. Carlos Gómez</td>
+                        <td>Citas Previas</td>
+                    </tr>
+                    <tr>
+                        <td>Odontología Veterinaria</td>
+                        <td>Martes y Jueves: 9:00 - 14:00</td>
+                        <td>Dra. Sofía Torres</td>
+                        <td>Citas Especializadas</td>
+                    </tr>
+                    <tr>
+                        <td>Cirugía y Hospitalización</td>
+                        <td>Emergencias 24/7 (Previa llamada)</td>
+                        <td>Equipo Quirúrgico</td>
+                        <td>Bajo Demanda</td>
+                    </tr>
+                    <tr>
+                        <td>Nutrición y Dietética</td>
+                        <td>Miércoles: 15:00 - 18:00</td>
+                        <td>Dra. Ana López</td>
+                        <td>Citas Personalizadas</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tabla 2: Precios Estimados de Servicios Comunes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Descripción Breve</th>
+                        <th>Precio (MXN)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consulta General</td>
+                        <td>Diagnóstico, revisión física básica.</td>
+                        <td>$450 - $600</td>
+                    </tr>
+                    <tr>
+                        <td>Vacuna Múltiple Canina/Felina</td>
+                        <td>Incluye dosis y aplicación.</td>
+                        <td>$350 - $500</td>
+                    </tr>
+                    <tr>
+                        <td>Desparasitación Interna/Externa</td>
+                        <td>Según peso y tipo de medicamento.</td>
+                        <td>$200 - $400</td>
+                    </tr>
+                    <tr>
+                        <td>Esterilización Canina (Hembra)</td>
+                        <td>Cirugía estándar, post-operatorio básico.</td>
+                        <td>$2,500 - $4,000</td>
+                    </tr>
+                    <tr>
+                        <td>Esterilización Felina (Macho)</td>
+                        <td>Cirugía estándar, post-operatorio básico.</td>
+                        <td>$1,200 - $2,000</td>
+                    </tr>
+                    <tr>
+                        <td>Análisis de Sangre Básico</td>
+                        <td>Hemograma completo.</td>
+                        <td>$600 - $900</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Agenda tu Consulta o Envíanos tus Preguntas</h2>
+            <p>Por favor, complete el siguiente formulario para solicitar una cita o para que podamos responder a sus dudas. Nos pondremos en contacto con usted a la brevedad.</p>
+
+            <form action="#" method="post">
+                <h3>Datos del Propietario</h3>
+                <div class="form-group">
+                    <label for="nombre_propietario">1. Nombre Completo del Propietario:</label>
+                    <input type="text" id="nombre_propietario" name="nombre_propietario" placeholder="Ej: María Fernanda García" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_propietario">2. Correo Electrónico:</label>
+                    <input type="email" id="email_propietario" name="email_propietario" placeholder="Ej: tu.email@dominio.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono_propietario">3. Número de Teléfono:</label>
+                    <input type="tel" id="telefono_propietario" name="telefono_propietario" placeholder="Ej: +52 55 1234 5678" pattern="[0-9\s\-\(\)\+]+" title="Por favor, ingrese un número de teléfono válido." required>
+                </div>
+                <div class="form-group">
+                    <label for="direccion_propietario">4. Dirección de Residencia (opcional):</label>
+                    <input type="text" id="direccion_propietario" name="direccion_propietario" placeholder="Ej: Calle Falsa 123, Ciudad Juárez">
+                </div>
+
+                <h3>Datos de la Mascota y Motivo de Consulta</h3>
+                <div class="form-group">
+                    <label for="nombre_mascota">5. Nombre de la Mascota:</label>
+                    <input type="text" id="nombre_mascota" name="nombre_mascota" required>
+                </div>
+                <div class="form-group">
+                    <label for="especie_mascota">6. Especie de la Mascota:</label>
+                    <select id="especie_mascota" name="especie_mascota" required>
+                        <option value="">Seleccione una</option>
+                        <option value="canino">Canino</option>
+                        <option value="felino">Felino</option>
+                        <option value="ave">Ave</option>
+                        <option value="roedor">Roedor</option>
+                        <option value="reptil">Reptil</option>
+                        <option value="otro">Otro (especifique en síntomas)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="raza_mascota">7. Raza de la Mascota (si aplica):</label>
+                    <input type="text" id="raza_mascota" name="raza_mascota" placeholder="Ej: Pastor Alemán, Siamés">
+                </div>
+                <div class="form-group">
+                    <label for="edad_mascota">8. Edad de la Mascota (en años):</label>
+                    <input type="number" id="edad_mascota" name="edad_mascota" min="0" max="30" placeholder="Ej: 5">
+                </div>
+                <fieldset class="radio-group">
+                    <legend>9. Género de la Mascota:</legend>
+                    <input type="radio" id="genero_macho" name="genero_mascota" value="macho" required>
+                    <label for="genero_macho">Macho</label><br>
+                    <input type="radio" id="genero_hembra" name="genero_mascota" value="hembra">
+                    <label for="genero_hembra">Hembra</label>
+                </fieldset>
+                <fieldset class="checkbox-group">
+                    <legend>10. ¿La mascota está esterilizada/castrada?</legend>
+                    <input type="checkbox" id="esterilizada_si" name="esterilizada" value="si">
+                    <label for="esterilizada_si">Sí</label><br>
+                    <input type="checkbox" id="esterilizada_no" name="esterilizada" value="no">
+                    <label for="esterilizada_no">No</label>
+                </fieldset>
+                <div class="form-group">
+                    <label for="sintomas_principales">11. Describa brevemente los síntomas o el motivo principal de su consulta:</label>
+                    <textarea id="sintomas_principales" name="sintomas_principales" rows="5" placeholder="Ej: Ha estado decaído, no come, cojea de una pata, necesita vacunas, etc." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_consulta_preferida">12. Fecha Preferida para la Consulta:</label>
+                    <input type="date" id="fecha_consulta_preferida" name="fecha_consulta_preferida" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora_consulta_preferida">13. Hora Preferida para la Consulta:</label>
+                    <input type="time" id="hora_consulta_preferida" name="hora_consulta_preferida">
+                </div>
+
+                <h3>Información Adicional</h3>
+                <div class="form-group">
+                    <label for="peso_mascota">14. Peso aproximado de la mascota (kg):</label>
+                    <input type="number" id="peso_mascota" name="peso_mascota" min="0.1" max="100" step="0.1" placeholder="Ej: 15.5">
+                </div>
+                <div class="form-group">
+                    <label for="dieta_mascota">15. Tipo de Dieta Principal de la Mascota:</label>
+                    <input type="text" id="dieta_mascota" name="dieta_mascota" placeholder="Ej: Croquetas Premium, Dieta BARF, Comida casera">
+                </div>
+                <div class="form-group">
+                    <label for="medicacion_actual">16. ¿Su mascota toma alguna medicación actualmente?</label>
+                    <textarea id="medicacion_actual" name="medicacion_actual" rows="3" placeholder="Si sí, especifique nombre del medicamento, dosis y frecuencia."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="calificacion_urgencia">17. ¿Qué tan urgente considera esta consulta? (1-No urgente, 5-Muy urgente)</label>
+                    <input type="range" id="calificacion_urgencia" name="calificacion_urgencia" min="1" max="5" step="1" value="3" oninput="this.nextElementSibling.value=this.value">
+                    <output class="range-output">3</output>
+                </div>
+                <div class="form-group">
+                    <label for="canal_preferido_contacto">18. ¿Cuál es su canal de contacto preferido?</label>
+                    <select id="canal_preferido_contacto" name="canal_preferido_contacto">
+                        <option value="telefono">Teléfono</option>
+                        <option value="email">Correo Electrónico</option>
+                        <option value="whatsapp">WhatsApp</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="como_nos_encontro">19. ¿Cómo se enteró de Clínica Veterinaria Salud Animal?</label>
+                    <input type="text" id="como_nos_encontro" name="como_nos_encontro" list="opciones_encontro" placeholder="Ej: Google, recomendación, redes sociales...">
+                    <datalist id="opciones_encontro">
+                        <option value="Recomendación Personal">
+                        <option value="Búsqueda en Google">
+                        <option value="Redes Sociales">
+                        <option value="Pasé por la clínica">
+                        <option value="Publicidad">
+                        <option value="Otro">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="link_adicional">20. Si tiene un enlace a videos o fotos relevantes de su mascota, puede pegarlo aquí:</label>
+                    <input type="url" id="link_adicional" name="link_adicional" placeholder="Ej: https://youtube.com/misintoma">
+                </div>
+
+                <button type="submit">Enviar Solicitud de Consulta</button>
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria - Nutrición y Dietética Canina y Felina</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcfdf9; /* Fondo muy claro, un toque verdoso-amarillento */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        header {
+            background-color: #28a745; /* Verde vibrante para nutrición */
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.3em;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+        h2 {
+            color: #1e7e34; /* Verde oscuro para títulos */
+            border-bottom: 2px solid #e0ffe0; /* Línea suave verde */
+            padding-bottom: 12px;
+            margin-top: 40px;
+            font-size: 2.2em;
+        }
+        h3 {
+            color: #4CAF50; /* Verde más claro para subtítulos */
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #28a745; /* Resaltar con el color principal */
+            font-weight: bold;
+        }
+
+        /* Estilos de Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #e0ffe0; /* Bordes de tabla sutiles */
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #eafbea; /* Fondo claro verde para encabezados */
+            color: #1e7e34; /* Texto verde oscuro */
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.05em;
+        }
+        tr:nth-child(even) {
+            background-color: #f7fff7; /* Fila par muy sutil */
+        }
+        tr:hover {
+            background-color: #e0ffe0; /* Resaltar fila al pasar el mouse */
+        }
+
+        /* Estilos de Formulario */
+        form {
+            background-color: #fcfefe; /* Fondo claro para el formulario */
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #ccebcc; /* Borde suave */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="url"],
+        input[type="password"],
+        select,
+        textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border: 1px solid #aadea7; /* Borde suave verdoso */
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="url"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #28a745; /* Borde verde al enfocar */
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+            outline: none;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.1);
+        }
+        fieldset {
+            border: 1px solid #aadea7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            background-color: #fbfefb;
+        }
+        legend {
+            font-weight: bold;
+            color: #1e7e34;
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+        button {
+            background-color: #28a745; /* Verde principal */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: #1e7e34; /* Verde más oscuro al pasar el mouse */
+            transform: translateY(-2px);
+        }
+        .checkbox-group label, .radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        .range-output {
+            font-weight: bold;
+            color: #1e7e34;
+            margin-left: 10px;
+        }
+        .info-box {
+            background-color: #eafbea;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Nutrición y Dietética Veterinaria</h1>
+      <p>Alimentando la Salud y el Bienestar de su Mascota</p>
+        <h1><a href="INDEX_OFICIAL_VETERINARIA.html">volver</a></h1>
+    </header>
+
+    <div class="container">
+        <section>
+<h2>La Base de una Vida Saludable: Una Nutrición Adecuada</h2>
+            <p>La alimentación es uno de los pilares fundamentales para la salud, el desarrollo y la longevidad de su mascota. Una dieta equilibrada y adaptada a sus necesidades específicas puede prevenir enfermedades, mejorar la calidad de vida y apoyar la recuperación en caso de afecciones médicas. En nuestra clínica, ofrecemos servicios especializados en **nutrición y dietética veterinaria** para ayudarle a tomar las mejores decisiones alimenticias para su compañero animal.</p>
+
+            <div class="info-box">
+                <p>Nuestros expertos en nutrición trabajarán con usted para crear un plan dietético personalizado que se ajuste a la edad, raza, nivel de actividad y estado de salud de su mascota.</p>
+            </div>
+
+            <h3>Tabla 1: Servicios de Nutrición y Dietética que Ofrecemos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>Descripción Breve</th>
+                        <th>Beneficios Clave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**Evaluación Nutricional Completa**</td>
+                        <td>Análisis de la dieta actual, historial médico, estilo de vida y condición corporal de su mascota.</td>
+                        <td>Identifica deficiencias o excesos, establece una base para el plan dietético.</td>
+                    </tr>
+                    <tr>
+                        <td>**Planes de Peso Saludable**</td>
+                        <td>Manejo de sobrepeso u obesidad, así como dietas para mascotas con bajo peso.</td>
+                        <td>Ayuda a alcanzar y mantener un peso ideal, reduciendo riesgos de enfermedades asociadas.</td>
+                    </tr>
+                    <tr>
+                        <td>**Dietas para Enfermedades Específicas**</td>
+                        <td>Formulación de dietas para condiciones como problemas renales, hepáticos, cardíacos, diabetes, alergias alimentarias.</td>
+                        <td>Apoya el tratamiento médico, mejora síntomas y calidad de vida.</td>
+                    </tr>
+                    <tr>
+                        <td>**Nutrición para Etapas de Vida**</td>
+                        <td>Re

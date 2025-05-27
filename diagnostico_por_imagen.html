@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Firulais - Diagnóstico por Imagen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght=700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables CSS para colores y fuentes */
+        :root {
+            --primary-color: #2c3e50; /* Azul oscuro formal */
+            --secondary-color: #3498db; /* Azul cielo para acentos */
+            --light-bg: #ecf0f1; /* Gris claro */
+            --dark-text: #2f3640; /* Texto oscuro */
+            --light-text: #ffffff; /* Texto claro */
+            --font-roboto: 'Roboto', sans-serif;
+            --font-playfair: 'Playfair Display', serif;
+        }
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-roboto);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Encabezado y Navegación --- */
+        header {
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-playfair);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1600x800/2c3e50/ffffff?text=Diagnostico+por+Imagen+Veterinaria') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+        }
+
+        #hero h1 {
+            font-family: var(--font-playfair);
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #hero p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* --- Secciones Generales --- */
+        section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        section:nth-of-type(even) {
+            background-color: #f8f8f8; /* Un gris aún más claro para alternar */
+        }
+
+        h2 {
+            font-family: var(--font-playfair);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* --- Servicios (Modalidades de Imagen) --- */
+        #imaging-services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .service-item {
+            background: var(--light-text);
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-item img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
+        }
+
+        .service-item h3 {
+            font-family: var(--font-playfair);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* --- Tecnología --- */
+        #technology {
+            text-align: center;
+        }
+
+        #technology .tech-description {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            font-size: 1.15rem;
+            color: #444;
+        }
+
+        .tech-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .tech-feature-item {
+            background: var(--light-text);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 280px;
+            text-align: left;
+        }
+
+        .tech-feature-item h3 {
+            font-family: var(--font-playfair);
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .tech-feature-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* --- Casos de Éxito --- */
+        #success-stories {
+            background: linear-gradient(rgba(44,62,80,0.85), rgba(44,62,80,0.85)), url('https://via.placeholder.com/1600x600/34495e/ffffff?text=Mascotas+Felices') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        #success-stories h2 {
+            color: var(--light-text);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .story-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .story-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .story-item h3 {
+            font-family: var(--font-playfair);
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .story-item p {
+            font-size: 1rem;
+            font-style: italic;
+            color: #eee;
+        }
+
+        /* --- Contacto --- */
+        #contact .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        #contact .contact-info,
+        #contact .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-playfair);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        .contact-info p strong {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-info p img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .contact-info iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form form {
+            background: var(--light-text);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h3 {
+            font-family: var(--font-playfair);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: var(--font-roboto);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #22303f;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Media Queries para Responsividad --- */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+
+            #hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .service-grid, .story-grid, .tech-features {
+                grid-template-columns: 1fr;
+            }
+
+            #contact .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero {
+                padding: 60px 20px;
+            }
+
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .tech-feature-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Firulais</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#imaging-services">Servicios</a></li>
+                    <li><a href="#technology">Tecnología</a></li>
+                    <li><a href="#success-stories">Casos de Éxito</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Diagnóstico por Imagen Avanzado para tus Mascotas</h1>
+                <p>En Veterinaria Firulais, utilizamos tecnología de punta para obtener diagnósticos precisos y rápidos, garantizando el mejor cuidado para la salud de tus compañeros peludos.</p>
+                <a href="#contact" class="btn">Solicitar Cita de Diagnóstico</a>
+            </div>
+        </section>
+
+        <section id="imaging-services">
+            <div class="container">
+                <h2>Nuestras Modalidades de Imagen</h2>
+                <h1><a href="INDEX_OFICIAL_VETERINARIA.html">volver&nbsp;</a></h1>
+<div class="service-grid">
+          <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/x-ray.png" alt="Rayos X Digital">
+                        <h3>Rayos X Digital</h3>
+                        <p>Imágenes de alta resolución para evaluar huesos, órganos y detectar cuerpos extraños con mínima exposición.</p>
+        </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/ultrasound.png" alt="Ultrasonido">
+                        <h3>Ultrasonido</h3>
+                        <p>Diagnóstico en tiempo real de órganos internos, embarazos y afecciones abdominales sin radiación.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/medical-scanner.png" alt="Endoscopia">
+                        <h3>Endoscopia</h3>
+                        <p>Exploración mínimamente invasiva de tractos digestivo y respiratorio, permitiendo biopsias y remoción de cuerpos extraños.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/cat-footprint.png" alt="Tomografía (CT)">
+                        <h3>Tomografía Computarizada (CT)</h3>
+                        <p>Imágenes tridimensionales detalladas para el diagnóstico de condiciones complejas en cabeza, tórax y abdomen.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/brain-scan.png" alt="Resonancia Magnética (MRI)">
+                        <h3>Resonancia Magnética (MRI)</h3>
+                        <p>La opción más avanzada para tejidos blandos, ideal para cerebro, médula espinal y articulaciones.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/microscope.png" alt="Servicios de Laboratorio">
+                        <h3>Interpretación Especializada</h3>
+                        <p>Radiólogos veterinarios certificados interpretan cada imagen para diagnósticos precisos y planes de tratamiento efectivos.</p>
+                    </div>
+              </div>
+          </div>
+        </section>
+
+        <section id="technology">
+            <div class="container">
+                <h2>Nuestra Tecnología de Vanguardia</h2>
+                <p class="tech-description">En Firulais, nos comprometemos a ofrecer las mejores herramientas diagnósticas. Nuestra inversión en tecnología de punta asegura resultados precisos y rápidos, minimizando el estrés de tu mascota.</p>
+                <div class="tech-features">
+                    <div class="tech-feature-item">
+                        <h3>Precisión Inigualable</h3>
+                        <p>Equipos de última generación que ofrecen imágenes de altísima resolución para detectar incluso las afecciones más sutiles.</p>
+                    </div>
+                    <div class="tech-feature-item">
+                        <h3>Seguridad Primero</h3>
+                        <p>Protocolos de seguridad estrictos y dosis mínimas de radiación (cuando aplica) para la protección de tu mascota.</p>
+                    </div>
+                    <div class="tech-feature-item">
+                        <h3>Resultados Rápidos</h3>
+                        <p>Sistemas digitales que permiten la obtención y análisis de imágenes en tiempo récord, acelerando el diagnóstico y tratamiento.</p>
+                    </div>
+                    <div class="tech-feature-item">
+                        <h3>Comodidad Animal</h3>
+                        <p>Diseñamos nuestros procedimientos para que sean lo menos invasivos y estresantes posible para tus compañeros.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="success-stories">
+            <div class="container">
+                <h2>Casos de Éxito</h2>
+                <div class="story-grid">
+                    <div class="story-item">
+                        <img src="https://via.placeholder.com/400x250/5DADE2/ffffff?text=Perro+Feliz+Recuperado" alt="Perro recuperado">
+                        <h3>Max, el Juguetón</h3>
+                        <p>Gracias a un ultrasonido temprano, detectamos y retiramos un cuerpo extraño que salvó la vida de Max.</p>
+                    </div>
+                    <div class="story-item">
+                        <img src="https://via.placeholder.com/400x250/5DADE2/ffffff?text=Gato+Sano+Ahora" alt="Gato recuperado">
+                        <h3>Luna, la Curiosa</h3>
+                        <p>Una radiografía digital nos permitió diagnosticar una fractura oculta y Luna está de vuelta saltando y jugando.</p>
+                    </div>
+                    <div class="story-item">
+                        <img src="https://via.placeholder.com/400x250/5DADE2/ffffff?text=Mascota+Feliz" alt="Animal recuperado">
+                        <h3>Rocky, el Aventurero</h3>
+                        <p>Con la endoscopia, identificamos y tratamos una inflamación crónica, permitiendo que Rocky viva sin molestias.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contáctanos para una Cita</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/phone.png" alt="Teléfono"> <strong>Teléfono:</strong> +52 (656) 123-4567</p>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/email.png" alt="Email"> <strong>Email:</strong> info@firulaisvet.com</p>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/place-marker.png" alt="Dirección"> <strong>Dirección:</strong> Av. Principal #123, Col. Centro, Ciudad Juárez, Chihuahua</p>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/calendar.png" alt="Horario"> <strong>Horario:</strong> Lun-Vie: 9:00 AM - 6:00 PM | Sáb: 10:00 AM - 2:00 PM</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.3000000000007!2d-106.44100000000001!3d31.739000000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQ0JzE0LjQiTiAxMDbCsDI2JzI3LjYiVw!5e0!3m2!1sen!2smx!4v1625488427845!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Envíanos un Mensaje</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pet-name">Nombre de la Mascota:</label>
+                                <input type="text" id="pet-name" name="pet-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Asunto:</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Tu Mensaje (síntomas, historial):</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Veterinaria Firulais. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

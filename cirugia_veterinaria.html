@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria - Servicios de Cirugía Avanzada</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7fbfd; /* Azul muy claro, casi blanco */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        header {
+            background-color: #007bff; /* Azul vibrante */
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.3em;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+        h2 {
+            color: #0056b3; /* Azul oscuro para títulos */
+            border-bottom: 2px solid #e0f2f7; /* Línea suave azul */
+            padding-bottom: 12px;
+            margin-top: 40px;
+            font-size: 2.2em;
+        }
+        h3 {
+            color: #2c3e50; /* Gris azulado para subtítulos */
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #007bff; /* Resaltar con el color principal */
+            font-weight: bold;
+        }
+
+        /* Estilos de Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #e0f2f7; /* Bordes de tabla sutiles */
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f8ff; /* Fondo claro azul para encabezados */
+            color: #0056b3; /* Texto azul oscuro */
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.05em;
+        }
+        tr:nth-child(even) {
+            background-color: #f7fcff; /* Fila par muy sutil */
+        }
+        tr:hover {
+            background-color: #e6f7ff; /* Resaltar fila al pasar el mouse */
+        }
+
+        /* Estilos de Formulario */
+        form {
+            background-color: #fcfdff; /* Fondo claro para el formulario */
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #cceeff; /* Borde suave */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="url"],
+        input[type="password"],
+        select,
+        textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border: 1px solid #aaddff; /* Borde suave azulado */
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="url"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff; /* Borde azul al enfocar */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.1);
+        }
+        fieldset {
+            border: 1px solid #aaddff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            background-color: #fbfdff;
+        }
+        legend {
+            font-weight: bold;
+            color: #004d99;
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+        button {
+            background-color: #007bff; /* Azul principal */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+            transform: translateY(-2px);
+        }
+        .checkbox-group label, .radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        .range-output {
+            font-weight: bold;
+            color: #004d99;
+            margin-left: 10px;
+        }
+        .important-note {
+            background-color: #fff3cd; /* Amarillo claro para notas importantes */
+            border-left: 5px solid #ffc107; /* Borde amarillo más oscuro */
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Servicios de Cirugía Veterinaria Avanzada</h1>
+      <p>Expertos en procedimientos quirúrgicos para el bienestar de su mascota</p>
+        <h1>&nbsp;<a href="INDEX_OFICIAL_VETERINARIA.html">volver</a></h1>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Nuestro Compromiso en Cirugía Veterinaria</h2>
+            <p>En nuestra clínica, contamos con un equipo de veterinarios especializados en cirugía y un quirófano equipado con la tecnología más avanzada para garantizar la seguridad y el éxito de cada procedimiento. La salud y el bienestar de su mascota son nuestra máxima prioridad en cada etapa, desde la preparación hasta la recuperación postoperatoria.</p>
+
+            <div class="important-note">
+                <p><strong>Nota Importante:</strong> Para cualquier procedimiento quirúrgico, es indispensable una evaluación pre-quirúrgica completa para asegurar la salud de su mascota y minimizar riesgos. Nuestro equipo le guiará en cada paso.</p>
+            </div>
+
+            <h3>Tabla 1: Tipos de Cirugías Veterinarias Ofrecidas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoría de Cirugía</th>
+                        <th>Ejemplos de Procedimientos Comunes</th>
+                        <th>Descripción Breve</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**Cirugías de Tejidos Blandos**</td>
+                        <td>Esterilización/Castración, extracción de tumores cutáneos, hernias, cirugías gastrointestinales (enterotomía, gastrotomía).</td>
+                        <td>Intervenciones en órganos internos y piel.</td>
+                    </tr>
+                    <tr>
+                        <td>**Cirugías Ortopédicas**</td>
+                        <td>Reparación de fracturas, luxación de rótula, ruptura de ligamento cruzado craneal.</td>
+                        <td>Corrección de problemas en huesos, articulaciones y ligamentos.</td>
+                    </tr>
+                    <tr>
+                        <td>**Cirugías Oculares**</td>
+                        <td>Extracción de cuerpos extraños, cirugía de párpados (entropión/ectropión), úlceras corneales complicadas.</td>
+                        <td>Procedimientos para preservar o restaurar la visión y salud ocular.</td>
+                    </tr>
+                    <tr>
+                        <td>**Cirugías Dentales Avanzadas**</td>
+                        <td>Extracciones complejas, reparación de fracturas dentales, cirugía de encías.</td>
+                        <td>Intervenciones más allá de la limpieza dental rutinaria.</td>
+                    </tr>
+                    <tr>
+                        <td>**Cirugías Urogenitales**</td>
+                        <td>Cálculos en vejiga o riñones, obstrucciones urinarias, cirugías prostáticas.</td>
+                        <td>Procedimientos en el sistema urinario y reproductivo.</td>
+                    </tr>
+                    <tr>
+                        <td>**Cirugías de Emergencia**</td>
+                        <td>Cesáreas de urgencia, torsión gástrica, obstrucciones intestinales agudas por cuerpos extraños, hemorragias internas.</td>
+                        <td>Intervenciones urgentes para salvar la vida del animal.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tabla 2: Proceso Pre y Post-Quirúrgico Estándar</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etapa del Proceso</th>
+                        <th>Acciones y Consideraciones</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**1. Consulta y Evaluación Pre-quirúrgica**</td>
+                        <td>Examen físico, análisis de sangre, radiografías, ecografías. Discusión de riesgos y beneficios.</td>
+                        <td>Evaluar el estado de salud general y la idoneidad para la anestesia y cirugía.</td>
+                    </tr>
+                    <tr>
+                        <td>**2. Ayuno Pre-operatorio**</td>
+                        <td>No comida por 8-12 horas, no agua por 2-4 horas (según indicaciones).</td>
+                        <td>Prevenir vómitos durante la anestesia y aspiración pulmonar.</td>
+                    </tr>
+                    <tr>
+                        <td>**3. Anestesia y Monitoreo**</td>
+                        <td>Anestesia adaptada al paciente. Monitoreo constante de signos vitales (ECG, O2, CO2, presión).</td>
+                        <td>Garantizar la seguridad del paciente durante el procedimiento.</td>
+                    </tr>
+                    <tr>
+                        <td>**4. Procedimiento Quirúrgico**</td>
+                        <td>Realizado por cirujano certificado, con técnicas estériles y equipos avanzados.</td>
+                        <td>Corregir el problema de salud específico de la mascota.</td>
+                    </tr>
+                    <tr>
+                        <td>**5. Recuperación Post-operatoria**</td>
+                        <td>Monitoreo intensivo al despertar, manejo del dolor, calor y confort.</td>
+                        <td>Asegurar un despertar seguro y cómodo de la anestesia.</td>
+                    </tr>
+                    <tr>
+                        <td>**6. Cuidados en Casa y Seguimiento**</td>
+                        <td>Instrucciones detalladas de medicación, curaciones, restricciones de actividad. Citas de revisión.</td>
+                        <td>Optimizar la cicatrización, prevenir complicaciones y asegurar una recuperación completa.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Formulario de Solicitud de Cirugía y Evaluación Pre-quirúrgica</h2>
+            <p>Para agilizar el proceso y que nuestro equipo pueda evaluar el caso de su mascota con la mayor precisión, por favor, complete el siguiente formulario. Tenga en cuenta que este formulario es el primer paso y no sustituye la consulta veterinaria presencial.</p>
+
+            <form action="#" method="post">
+                <h3>Datos del Propietario</h3>
+                <div class="form-group">
+                    <label for="nombre_propietario">1. Nombre Completo del Propietario:</label>
+                    <input type="text" id="nombre_propietario" name="nombre_propietario" placeholder="Ej: Laura Flores" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_propietario">2. Correo Electrónico:</label>
+                    <input type="email" id="email_propietario" name="email_propietario" placeholder="Ej: laura.f@ejemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono_propietario">3. Número de Teléfono (Contacto Principal):</label>
+                    <input type="tel" id="telefono_propietario" name="telefono_propietario" placeholder="Ej: +52 656 123 4567" pattern="[0-9\s\-\(\)\+]+" title="Por favor, ingrese un número de teléfono válido." required>
+                </div>
+                <div class="form-group">
+                    <label for="ciudad_residencia">4. Ciudad de Residencia:</label>
+                    <input type="text" id="ciudad_residencia" name="ciudad_residencia" placeholder="Ej: Ciudad Juárez, Chihuahua">
+                </div>
+
+                <h3>Datos de la Mascota</h3>
+                <div class="form-group">
+                    <label for="nombre_mascota">5. Nombre de la Mascota:</label>
+                    <input type="text" id="nombre_mascota" name="nombre_mascota" required>
+                </div>
+                <div class="form-group">
+                    <label for="especie_mascota">6. Especie de la Mascota:</label>
+                    <select id="especie_mascota" name="especie_mascota" required>
+                        <option value="">Seleccione una</option>
+                        <option value="canino">Canino</option>
+                        <option value="felino">Felino</option>
+                        <option value="otro">Otro (especifique en comentarios)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="raza_mascota">7. Raza de la Mascota (si aplica):</label>
+                    <input type="text" id="raza_mascota" name="raza_mascota" placeholder="Ej: Golden Retriever, Gato Común Europeo">
+                </div>
+                <div class="form-group">
+                    <label for="edad_mascota">8. Edad de la Mascota (ej: 2 años, 8 meses):</label>
+                    <input type="text" id="edad_mascota" name="edad_mascota" placeholder="Ej: 7 años, 1 mes">
+                </div>
+                <div class="form-group">
+                    <label for="peso_mascota">9. Peso aproximado de la mascota (kg):</label>
+                    <input type="number" id="peso_mascota" name="peso_mascota" min="0.1" max="150" step="0.1" placeholder="Ej: 25.0">
+                </div>
+                <fieldset class="radio-group">
+                    <legend>10. Género de la Mascota:</legend>
+                    <input type="radio" id="genero_macho" name="genero_mascota" value="macho" required>
+                    <label for="genero_macho">Macho</label><br>
+                    <input type="radio" id="genero_hembra" name="genero_mascota" value="hembra">
+                    <label for="genero_hembra">Hembra</label>
+                </fieldset>
+                <fieldset class="checkbox-group">
+                    <legend>11. ¿La mascota está esterilizada/castrada?</legend>
+                    <input type="checkbox" id="esterilizada_si" name="esterilizada" value="si">
+                    <label for="esterilizada_si">Sí</label><br>
+                    <input type="checkbox" id="esterilizada_no" name="esterilizada" value="no">
+                    <label for="esterilizada_no">No</label>
+                </fieldset>
+
+                <h3>Detalles de la Cirugía Propuesta / Necesidad</h3>
+                <div class="form-group">
+                    <label for="tipo_cirugia">12. Tipo de Cirugía o Problema que Requiere Intervención:</label>
+                    <textarea id="tipo_cirugia" name="tipo_cirugia" rows="4" placeholder="Ej: Esterilización, extracción de tumor en pata trasera, reparación de ligamento cruzado, etc." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="historial_medico">13. Breve Historial Médico Relevante (enfermedades previas, medicamentos actuales, alergias):</label>
+                    <textarea id="historial_medico" name="historial_medico" rows="5" placeholder="Especifique cualquier condición crónica, cirugías anteriores, medicamentos que esté tomando o alergias conocidas."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_sintomas">14. ¿Cuándo notó por primera vez el problema que requiere cirugía?</label>
+                    <input type="date" id="fecha_sintomas" name="fecha_sintomas">
+                </div>
+                 <fieldset class="radio-group">
+                    <legend>15. ¿Se han realizado exámenes pre-quirúrgicos recientemente (análisis de sangre, radiografías)?</legend>
+                    <input type="radio" id="examenes_si" name="examenes_prequirurgicos" value="si">
+                    <label for="examenes_si">Sí</label><br>
+                    <input type="radio" id="examenes_no" name="examenes_prequirurgicos" value="no">
+                    <label for="examenes_no">No</label><br>
+                    <input type="radio" id="examenes_desconozco" name="examenes_prequirurgicos" value="desconozco">
+                    <label for="examenes_desconozco">Desconozco</label>
+                </fieldset>
+                <div class="form-group">
+                    <label for="veterinario_remitente">16. Si fue referido por otro veterinario, ¿cuál es su nombre/clínica?</label>
+                    <input type="text" id="veterinario_remitente" name="veterinario_remitente" placeholder="Ej: Dr. Pérez, Clínica Animal Feliz">
+                </div>
+                <div class="form-group">
+                    <label for="nivel_dolor_mascota">17. ¿Cómo calificaría el nivel de dolor actual de su mascota (1-Ninguno, 10-Severo)?</label>
+                    <input type="

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria Firulais - Odontología Veterinaria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght=700&display=swap" rel="stylesheet">
+    <style>
+        /* Variables CSS para colores y fuentes */
+        :root {
+            --primary-color: #2c3e50; /* Azul oscuro formal */
+            --secondary-color: #3498db; /* Azul cielo para acentos */
+            --light-bg: #ecf0f1; /* Gris claro */
+            --dark-text: #2f3640; /* Texto oscuro */
+            --light-text: #ffffff; /* Texto claro */
+            --font-roboto: 'Roboto', sans-serif;
+            --font-playfair: 'Playfair Display', serif;
+        }
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-roboto);
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Encabezado y Navegación --- */
+        header {
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-playfair);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://via.placeholder.com/1600x800/2c3e50/ffffff?text=Sonrisa+Sana+Mascotas+Felices') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
+        }
+
+        #hero h1 {
+            font-family: var(--font-playfair);
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        #hero p {
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        /* --- Secciones Generales --- */
+        section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        section:nth-of-type(even) {
+            background-color: #f8f8f8; /* Un gris aún más claro para alternar */
+        }
+
+        h2 {
+            font-family: var(--font-playfair);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* --- Servicios (Odontológicos) --- */
+        #dental-services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .service-item {
+            background: var(--light-text);
+            padding: 40px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-item img {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.1));
+        }
+
+        .service-item h3 {
+            font-family: var(--font-playfair);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* --- Prevención --- */
+        #prevention {
+            text-align: center;
+        }
+
+        #prevention .prevention-description {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            font-size: 1.15rem;
+            color: #444;
+        }
+
+        .prevention-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .prevention-step-item {
+            background: var(--light-text);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: 280px;
+            text-align: left;
+        }
+
+        .prevention-step-item h3 {
+            font-family: var(--font-playfair);
+            font-size: 1.6rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .prevention-step-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* --- Mitos Comunes --- */
+        #myths {
+            background: linear-gradient(rgba(44,62,80,0.85), rgba(44,62,80,0.85)), url('https://via.placeholder.com/1600x600/34495e/ffffff?text=Mascotas+Felices+Sonriendo') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        #myths h2 {
+            color: var(--light-text);
+        }
+
+        .myth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .myth-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .myth-item h3 {
+            font-family: var(--font-playfair);
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .myth-item p {
+            font-size: 1rem;
+            font-style: italic;
+            color: #eee;
+        }
+
+        /* --- Contacto --- */
+        #contact .contact-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        #contact .contact-info,
+        #contact .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-playfair);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+        }
+
+        .contact-info p strong {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-info p img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .contact-info iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-form form {
+            background: var(--light-text);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .contact-form h3 {
+            font-family: var(--font-playfair);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: var(--font-roboto);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #22303f;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Media Queries para Responsividad --- */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+
+            #hero p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .service-grid, .myth-grid, .prevention-steps {
+                grid-template-columns: 1fr;
+            }
+
+            #contact .contact-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero {
+                padding: 60px 20px;
+            }
+
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .prevention-step-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Firulais</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#dental-services">Servicios</a></li>
+                    <li><a href="#prevention">Prevención</a></li>
+                    <li><a href="#myths">Mitos Comunes</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+          <div class="hero-content">
+                <h1>Odontología Veterinaria: Sonrisas Sanas para Vidas Felices</h1>
+            <p>En Veterinaria Firulais, nos especializamos en la salud dental de tus mascotas. Un cuidado bucal adecuado es esencial para su bienestar general y para evitar problemas serios.</p>
+              <p><a href="#contact" class="btn">Agenda una Evaluación Dental</a></p>
+              <h1><a href="INDEX_OFICIAL_VETERINARIA.html">volver</a></h1>
+            </div>
+        </section>
+
+        <section id="dental-services">
+            <div class="container">
+                <h2>Nuestros Servicios Odontológicos</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/tooth.png" alt="Limpieza Dental Profesional">
+                        <h3>Limpieza Dental Profesional</h3>
+                        <p>Eliminación de sarro y placa bajo anestesia segura, pulido y flúor para dientes más blancos y sanos.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/dental-braces.png" alt="Extracciones Dentales">
+                        <h3>Extracciones Dentales</h3>
+                        <p>Extracciones de dientes dañados o infectados con cuidado, minimizando el trauma y promoviendo la recuperación.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/tooth-decay.png" alt="Tratamiento de Enfermedad Periodontal">
+                        <h3>Tratamiento de Enfermedad Periodontal</h3>
+                        <p>Manejo avanzado de la gingivitis y periodontitis para detener la progresión de la enfermedad.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/x-ray.png" alt="Radiografía Dental Digital">
+                        <h3>Radiografía Dental Digital</h3>
+                        <p>Imágenes detalladas que revelan problemas debajo de la línea de las encías, invisibles a simple vista.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/dental-drilling.png" alt="Cirugía Oral Avanzada">
+                        <h3>Cirugía Oral Avanzada</h3>
+                        <p>Tratamientos para fracturas dentales, tumores orales y otras patologías complejas.</p>
+                    </div>
+                    <div class="service-item">
+                        <img src="https://img.icons8.com/ios-filled/100/2c3e50/tooth-with-roots.png" alt="Evaluación de Salud Oral">
+                        <h3>Evaluación de Salud Oral</h3>
+                        <p>Exámenes completos de la boca y dientes para identificar signos tempranos de problemas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="prevention">
+            <div class="container">
+                <h2>La Importancia de la Prevención Dental</h2>
+                <p class="prevention-description">La salud dental de tu mascota va más allá de un aliento fresco. Es fundamental para prevenir dolor, infecciones y enfermedades sistémicas. Aquí te damos algunos consejos para el cuidado en casa:</p>
+                <div class="prevention-steps">
+                    <div class="prevention-step-item">
+                        <h3>1. Cepillado Regular</h3>
+                        <p>Establece una rutina de cepillado diario o varias veces a la semana con pasta dental veterinaria.</p>
+                    </div>
+                    <div class="prevention-step-item">
+                        <h3>2. Dieta Adecuada</h3>
+                        <p>Considera alimentos y premios dentales formulados para reducir la acumulación de placa y sarro.</p>
+                    </div>
+                    <div class="prevention-step-item">
+                        <h3>3. Juguetes Dentales</h3>
+                        <p>Ofrece juguetes diseñados para limpiar los dientes mientras tu mascota juega y mastica.</p>
+                    </div>
+                    <div class="prevention-step-item">
+                        <h3>4. Chequeos Periódicos</h3>
+                        <p>Visita a tu veterinario regularmente para revisiones dentales y limpiezas profesionales cuando sea necesario.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="myths">
+            <div class="container">
+                <h2>Mitos Comunes sobre la Salud Dental Veterinaria</h2>
+                <div class="myth-grid">
+                    <div class="myth-item">
+                        <h3>"Mi perro come croquetas duras, eso le limpia los dientes."</h3>
+                        <p>Aunque algunas croquetas pueden ayudar, no son suficientes para una limpieza profunda. Solo el cepillado y las limpiezas profesionales eliminan el sarro acumulado.</p>
+                    </div>
+                    <div class="myth-item">
+                        <h3>"El mal aliento es normal en los perros/gatos."</h3>
+                        <p>¡Falso! El mal aliento (halitosis) es un signo clave de enfermedad dental. Un aliento fresco indica una boca sana.</p>
+                    </div>
+                    <div class="myth-item">
+                        <h3>"Mi mascota no se queja, no le duele nada."</h3>
+                        <p>Las mascotas son expertas en ocultar el dolor. Cuando notan cambios en su apetito o comportamiento, la enfermedad dental suele estar avanzada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contáctanos para la Salud Bucal de tu Mascota</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Información de Contacto</h3>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/phone.png" alt="Teléfono"> <strong>Teléfono:</strong> +52 (656) 123-4567</p>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/email.png" alt="Email"> <strong>Email:</strong> info@firulaisvet.com</p>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/place-marker.png" alt="Dirección"> <strong>Dirección:</strong> Av. Principal #123, Col. Centro, Ciudad Juárez, Chihuahua</p>
+                        <p><img src="https://img.icons8.com/ios-filled/24/2c3e50/calendar.png" alt="Horario"> <strong>Horario:</strong> Lun-Vie: 9:00 AM - 6:00 PM | Sáb: 10:00 AM - 2:00 PM</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.3000000000007!2d-106.44100000000001!3d31.739000000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDQ0JzE0LjQiTiAxMDbCsDI2JzI3LjYiVw!5e0!3m2!1sen!2smx!4v1625488427845!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Agenda tu Cita Dental</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pet-name">Nombre de la Mascota:</label>
+                                <input type="text" id="pet-name" name="pet-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Asunto:</label>
+                                <input type="text" id="subject" name="subject" value="Cita de Odontología Veterinaria" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Describe la condición o tu consulta:</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Veterinaria Firulais. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#"><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

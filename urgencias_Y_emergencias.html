@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Veterinaria - Urgencias y Emergencias 24/7</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f7ff; /* Fondo muy claro, un toque de azul */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 25px auto;
+            background-color: #ffffff;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+        header {
+            background-color: #b30000; /* Rojo oscuro para emergencia */
+            color: white;
+            padding: 25px 0;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3.2em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        h2 {
+            color: #004d99; /* Azul oscuro formal */
+            border-bottom: 2px solid #cceeff; /* Línea suave azul */
+            padding-bottom: 15px;
+            margin-top: 40px;
+            font-size: 2.2em;
+        }
+        h3 {
+            color: #444; /* Gris oscuro para subtítulos */
+            margin-top: 30px;
+            font-size: 1.6em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        strong {
+            color: #b30000; /* Resaltar con el color de emergencia */
+            font-weight: bold;
+        }
+
+        /* Sección de Contacto de Emergencia */
+        .emergency-contact {
+            background-color: #ffeb3b; /* Amarillo vibrante para llamar la atención */
+            color: #333;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 2px solid #ffd700;
+        }
+        .emergency-contact h2 {
+            color: #b30000; /* Rojo para el título de contacto */
+            margin-top: 0;
+            border-bottom: none;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .emergency-contact p {
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: bold;
+        }
+        .emergency-contact a {
+            color: #b30000;
+            text-decoration: none;
+            font-size: 2.2em;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            transition: color 0.3s ease;
+        }
+        .emergency-contact a:hover {
+            color: #800000;
+        }
+
+        /* Estilos de Tablas */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #e0f2f7; /* Bordes de tabla sutiles */
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f8ff; /* Fondo claro azul para encabezados */
+            color: #004d99; /* Texto azul oscuro */
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.05em;
+        }
+        tr:nth-child(even) {
+            background-color: #f7fcff; /* Fila par muy sutil */
+        }
+        tr:hover {
+            background-color: #e6f7ff; /* Resaltar fila al pasar el mouse */
+        }
+
+        /* Estilos de Formulario */
+        form {
+            background-color: #fcfdff; /* Fondo claro para el formulario */
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #cceeff; /* Borde suave */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+            font-size: 1.05em;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="url"],
+        input[type="password"],
+        select,
+        textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border: 1px solid #aaddff; /* Borde suave azulado */
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        input[type="time"]:focus,
+        input[type="url"]:focus,
+        input[type="password"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff; /* Borde azul al enfocar */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+            transform: scale(1.1);
+        }
+        fieldset {
+            border: 1px solid #aaddff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            background-color: #fbfdff;
+        }
+        legend {
+            font-weight: bold;
+            color: #004d99;
+            padding: 0 10px;
+            font-size: 1.2em;
+        }
+        button {
+            background-color: #b30000; /* Rojo de emergencia */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: #800000; /* Rojo más oscuro al pasar el mouse */
+            transform: translateY(-2px);
+        }
+        .checkbox-group label, .radio-group label {
+            display: inline-block;
+            margin-right: 20px;
+            font-weight: normal;
+        }
+        .range-output {
+            font-weight: bold;
+            color: #004d99;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Urgencias y Emergencias Veterinarias</h1>
+      <p>Atención 24/7 en Ciudad Juárez, Chihuahua</p>
+        <h1><a href="INDEX_OFICIAL_VETERINARIA.html">volver&nbsp;</a></h1>
+    </header>
+
+    <div class="container">
+        <section class="emergency-contact">
+            <h2>¡ATENCIÓN DE EMERGENCIA INMEDIATA!</h2>
+            <p>Si su mascota necesita ayuda urgente, no dude en contactarnos.</p>
+            <a href="tel:+526561234567">Llámenos Ahora: +52 (656) 123-4567</a>
+            <p>Estamos preparados para recibirle en nuestras instalaciones.</p>
+        </section>
+
+        <section>
+            <h2>Protocolo de Acción en Caso de Emergencia</h2>
+            <p>En nuestra clínica, cada segundo cuenta en una emergencia. Hemos establecido un protocolo claro para garantizar la atención más rápida y eficaz a su mascota.</p>
+
+            <h3>Tabla 1: Situaciones que Requieren Atención de Emergencia</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de Emergencia</th>
+                        <th>Ejemplos de Síntomas / Causas</th>
+                        <th>Nivel de Urgencia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**Traumatismos Severos**</td>
+                        <td>Atropellos, caídas desde altura, heridas punzantes profundas, fracturas expuestas.</td>
+                        <td>**¡Máxima Urgencia!**</td>
+                    </tr>
+                    <tr>
+                        <td>**Dificultad Respiratoria**</td>
+                        <td>Jadeo excesivo y persistente, encías azuladas, tos severa, ruidos respiratorios anormales.</td>
+                        <td>**¡Crítico!**</td>
+                    </tr>
+                    <tr>
+                        <td>**Intoxicaciones**</td>
+                        <td>Ingesta de veneno, medicamentos humanos, productos de limpieza, plantas tóxicas.</td>
+                        <td>**Alta Urgencia**</td>
+                    </tr>
+                    <tr>
+                        <td>**Convulsiones**</td>
+                        <td>Episodios de temblores incontrolables, salivación excesiva, pérdida de conciencia.</td>
+                        <td>**Alta Urgencia**</td>
+                    </tr>
+                    <tr>
+                        <td>**Vómitos/Diarrea Agudos**</td>
+                        <td>Vómitos constantes (más de 24h), diarrea con sangre, deshidratación severa.</td>
+                        <td>**Moderada a Alta Urgencia**</td>
+                    </tr>
+                    <tr>
+                        <td>**Reacciones Alérgicas Severas**</td>
+                        <td>Hinchazón facial (cara, ojos), dificultad para respirar, urticaria generalizada.</td>
+                        <td>**Moderada a Alta Urgencia**</td>
+                    </tr>
+                    <tr>
+                        <td>**Dolor Agudo y Súbito**</td>
+                        <td>Quejidos constantes, agresividad al tocar ciertas zonas, incapacidad para moverse.</td>
+                        <td>**Urgencia**</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tabla 2: Preparación para su Visita de Emergencia</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Acción Recomendada</th>
+                        <th>Detalle Importante</th>
+                        <th>Beneficio para la Atención</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**1. Llame con Anticipación**</td>
+                        <td>Informe sobre la situación antes de llegar.</td>
+                        <td>Permite al equipo prepararse y agilizar la atención.</td>
+                    </tr>
+                    <tr>
+                        <td>**2. Mantenga la Calma**</td>
+                        <td>Su tranquilidad ayudará a su mascota.</td>
+                        <td>Reduce el estrés del animal y facilita su manejo.</td>
+                    </tr>
+                    <tr>
+                        <td>**3. Recopile Información**</td>
+                        <td>Síntomas, cuándo iniciaron, posibles causas, historial médico, medicamentos.</td>
+                        <td>Ayuda a un diagnóstico más rápido y preciso.</td>
+                    </tr>
+                    <tr>
+                        <td>**4. Transporte Seguro**</td>
+                        <td>Utilice una jaula o transportadora si es posible, o una manta.</td>
+                        <td>Evita que la mascota se escape o cause más daño.</td>
+                    </tr>
+                    <tr>
+                        <td>**5. Identifique Tóxicos (si aplica)**</td>
+                        <td>Si ingirió algo, traiga la etiqueta o una muestra.</td>
+                        <td>Fundamental para determinar el tratamiento adecuado.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Formulario de Pre-Admisión de Emergencia</h2>
+            <p>Para agilizar el registro a su llegada, por favor, complete este formulario. Si su mascota está en una situación de vida o muerte, **no espere a llenarlo**, diríjase directamente a nuestra clínica y llámenos en el camino para una atención inmediata.</p>
+
+            <form action="#" method="post">
+                <h3>Datos del Propietario (Persona de Contacto Principal)</h3>
+                <div class="form-group">
+                    <label for="nombre_propietario">1. Nombre Completo del Propietario:</label>
+                    <input type="text" id="nombre_propietario" name="nombre_propietario" placeholder="Ej: Sofía Martínez" required>
+                </div>
+                <div class="form-group">
+                    <label for="email_propietario">2. Correo Electrónico Principal:</label>
+                    <input type="email" id="email_propietario" name="email_propietario" placeholder="Ej: sofia.m@ejemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono_propietario">3. Número de Teléfono Móvil (Contacto Inmediato):</label>
+                    <input type="tel" id="telefono_propietario" name="telefono_propietario" placeholder="Ej: +52 656 987 6543" pattern="[0-9\s\-\(\)\+]+" title="Por favor, ingrese un número de teléfono válido." required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono_alternativo">4. Número de Teléfono Alternativo (Opcional):</label>
+                    <input type="tel" id="telefono_alternativo" name="telefono_alternativo" placeholder="Ej: +52 656 111 2233" pattern="[0-9\s\-\(\)\+]+">
+                </div>
+                <div class="form-group">
+                    <label for="fecha_llegada_estimada">5. Fecha Estimada de su llegada a la Clínica:</label>
+                    <input type="date" id="fecha_llegada_estimada" name="fecha_llegada_estimada" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora_llegada_estimada">6. Hora Estimada de su llegada a la Clínica:</label>
+                    <input type="time" id="hora_llegada_estimada" name="hora_llegada_estimada">
+                </div>
+
+                <h3>Datos de la Mascota</h3>
+                <div class="form-group">
+                    <label for="nombre_mascota">7. Nombre de la Mascota:</label>
+                    <input type="text" id="nombre_mascota" name="nombre_mascota" required>
+                </div>
+                <div class="form-group">
+                    <label for="especie_mascota">8. Especie de la Mascota:</label>
+                    <select id="especie_mascota" name="especie_mascota" required>
+                        <option value="">Seleccione una</option>
+                        <option value="canino">Canino</option>
+                        <option value="felino">Felino</option>
+                        <option value="ave">Ave</option>
+                        <option value="roedor">Roedor</option>
+                        <option value="reptil">Reptil</option>
+                        <option value="otro_especie">Otro (especifique en observaciones)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="raza_mascota">9. Raza de la Mascota (si aplica):</label>
+                    <input type="text" id="raza_mascota" name="raza_mascota" placeholder="Ej: Pug, Gato Persa">
+                </div>
+                <div class="form-group">
+                    <label for="edad_mascota">10. Edad de la Mascota (ej: 2 años, 8 meses):</label>
+                    <input type="text" id="edad_mascota" name="edad_mascota" placeholder="Ej: 5 años, 3 meses">
+                </div>
+                <div class="form-group">
+                    <label for="peso_mascota">11. Peso aproximado de la mascota (kg):</label>
+                    <input type="number" id="peso_mascota" name="peso_mascota" min="0.1" max="150" step="0.1" placeholder="Ej: 12.3">
+                </div>
+                <fieldset class="radio-group">
+                    <legend>12. Género de la Mascota:</legend>
+                    <input type="radio" id="genero_macho" name="genero_mascota" value="macho" required>
+                    <label for="genero_macho">Macho</label><br>
+                    <input type="radio" id="genero_hembra" name="genero_mascota" value="hembra">
+                    <label for="genero_hembra">Hembra</label>
+                </fieldset>
+                <fieldset class="checkbox-group">
+                    <legend>13. ¿La mascota está esterilizada/castrada?</legend>
+                    <input type="checkbox" id="esterilizada_si" name="esterilizada" value="si">
+                    <label for="esterilizada_si">Sí</label><br>
+                    <input type="checkbox" id="esterilizada_no" name="esterilizada" value="no">
+                    <label for="esterilizada_no">No</label>
+                </fieldset>
+
+                <h3>Detalles de la Emergencia</h3>
+                <div class="form-group">
+                    <label for="sintomas_emergencia">14. Describa detalladamente la emergencia y los síntomas observados:</label>
+                    <textarea id="sintomas_emergencia" name="sintomas_emergencia" rows="7" placeholder="Sea lo más específico posible: ¿Cuándo comenzaron los síntomas? ¿Qué cambios ha notado? ¿Hubo algún incidente? ¿Hay historial médico relevante?" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="medicacion_actual">15. ¿Su mascota toma alguna medicación actualmente o tiene alguna alergia conocida?</label>
+                    <textarea id="medicacion_actual" name="medicacion_actual" rows="3" placeholder="Si sí, especifique nombre del medicamento, dosis, frecuencia y cualquier alergia conocida."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="historial_medico_url">16. Si tiene acceso a un historial médico digital o resultados de pruebas relevantes (URL):</label>
+                    <input type="url" id="historial_medico_url" name="historial_medico_url" placeholder="Ej: http://drive.google.com/expediente-mascota-x.pdf">
+                </div>
+                 <fieldset class="radio-group">
+                    <legend>17. ¿La mascota está vacunada y desparasitada al día?</legend>
+                    <input type="radio" id="vacunada_si" name="vacunacion_desparasitacion" value="si" required>
+                    <label for="vacunada_si">Sí, al día</label><br>
+                    <input type="radio" id="vacunada_no" name="vacunacion_desparasitacion" value="no">
+                    <label for="vacunada_no">No</label><br>
+                    <input type="radio" id="vacunada_desconozco" name="vacunacion_desparasitacion" value="desconozco">
+                    <label for="vacunada_desconozco">Desconozco</label>
+                </fieldset>
+                <div class="form-group">
+                    <label for="calificacion_dolor">18. ¿Cómo calificaría el nivel de dolor de su mascota (1-Sin dolor, 10-Dolor severo)?</label>
+                    <input type="range" id="calificacion_dolor" name="calificacion_dolor" min="1" max="10" step="1" value="5" oninput="this.nextElementSibling.value=this.value">
+                    <output class="range-output">5</output>
+                </div>
+                 <div class="form-group">
+                    <label for="color_ojos_mascota">19. ¿Cuál es el color de ojos de su mascota?</label>
+                    <input type="text" id="color_ojos_mascota" name="color_ojos_mascota" placeholder="Ej: Marrones, Azules, Heterocromía">
+                </div>
+                <div class="form-group">
+                    <label for="observaciones_adicionales">20. ¿Alguna otra observación o antecedente importante para el equipo veterinario?</label>
+                    <textarea id="observaciones_adicionales" name="observaciones_adicionales" rows="4" placeholder="Cualquier dato adicional que pueda ser relevante para el diagnóstico o tratamiento..."></textarea>
+                </div>
+
+                <button type="submit">Enviar Formulario de Pre-Admisión de Emergencia</button>
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>
